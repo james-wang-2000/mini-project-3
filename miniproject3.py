@@ -47,6 +47,7 @@ for i in range(len(digits.data)):
 
 ex = np.array(two[50]).reshape((8,8))
 def change_one(x):#1[50]
+    """ up lighter(-2), down darker(+2)"""
     for i in range(8):
         for j in range(8):
             if x[i][j] == 0:
@@ -55,11 +56,15 @@ def change_one(x):#1[50]
                 x[i][j] = x[i][j] - 2
             else:
                 x[i][j] = x[i][j] + 2
+                
 def move_left(x):#9[5],0[2]
+    """ whole picture move left 1 """
     for i in range(8):
         for j in range(7):
             x[i][j] = x[i][j+1]
+            
 def change_three(x): #three[50]
+    """ up move right 1, down move left 1 """
     for i in range(4):
         for j in range(7,0,-1):
             #if x[i][j] != 0:
@@ -68,7 +73,9 @@ def change_three(x): #three[50]
     for i in range(4,8):
         for j in range(7):
             x[i][j] = x[i][j+1]
+            
 def blurr(x): #four[50][20],six[20],
+    """ all darker (+10) """
     for i in range(8):
         for j in range(7):
             x[i][j] = x[i][j]+10
@@ -76,15 +83,6 @@ def blurr(x): #four[50][20],six[20],
 print(ex)
 change_one(ex)
 print(ex)
-a = np.array([0,0,0,0,6,0,0,0,
-               0,0,2,6,6,0,0,0,
-               0,0,6,2,6,0,0,0,
-               0,0,0,0,6,0,0,0,
-               0,0,0,0,6,0,0,0,
-               0,0,0,0,6,0,0,0,
-               0,0,6,6,6,6,6,0,
-               0,0,0,0,0,0,0,0])
-
 np.random.seed(42)
 #ex = np.random.normal(ex,2)
 
@@ -96,4 +94,3 @@ print(model.predict(ex.reshape(1,64)))
 
 plt.imshow(ex.reshape(8,8),cmap = plt.cm.binary)
 plt.show()
-
