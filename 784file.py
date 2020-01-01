@@ -3,6 +3,7 @@ mnist = fetch_openml('mnist_784', version=1, cache=True)
 print(mnist.data.shape)
 import numpy as np
 #print(digits['target'][0])
+print("data done")
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -21,6 +22,8 @@ Xtrain,Xtest,ytrain,ytest = train_test_split(mnist.data,mnist.target,random_stat
 from sklearn.ensemble import RandomForestClassifier
 model = RandomForestClassifier(n_estimators=1000)
 model.fit(Xtrain,ytrain)
+
+print('trained')
 
 from sklearn.metrics import accuracy_score
 ypred=model.predict(Xtest)
