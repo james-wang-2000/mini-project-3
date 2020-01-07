@@ -46,7 +46,8 @@ for i in range(len(digits.data)):
         nine.append(digits.data[i])
 
 ex = np.array(two[50]).reshape((8,8))
-def change_one(x):#1[50]
+
+def dark_down(x):    #1[50]
     """ up lighter(-2), down darker(+2)"""
     for i in range(8):
         for j in range(8):
@@ -57,13 +58,13 @@ def change_one(x):#1[50]
             else:
                 x[i][j] = x[i][j] + 2
                 
-def move_left(x):#9[5],0[2]
+def move_left(x):    #9[5],0[2]
     """ whole picture move left 1 """
     for i in range(8):
         for j in range(7):
             x[i][j] = x[i][j+1]
             
-def change_three(x): #three[50]
+def twist(x):    #3[50]
     """ up move right 1, down move left 1 """
     for i in range(4):
         for j in range(7,0,-1):
@@ -74,7 +75,7 @@ def change_three(x): #three[50]
         for j in range(7):
             x[i][j] = x[i][j+1]
             
-def blurr(x): #four[50][20],six[20],
+def blurr(x):   #4[50][20],6[20],
     """ all darker (+10) """
     for i in range(8):
         for j in range(7):
