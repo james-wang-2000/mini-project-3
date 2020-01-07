@@ -11,7 +11,3 @@ def convert(image):
 
     return data
 
-if __name__ == '__main__':
-    print(convert(r"C:\Users\Admin\Desktop\Python\計程實驗\mini_project_3\2.png"))
-    
-    
