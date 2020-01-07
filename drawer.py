@@ -2,7 +2,6 @@ from sklearn.datasets import load_digits
 from masaic import convert
 digits = load_digits()
 import numpy as np
-#print(digits['target'][0])
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -45,25 +44,16 @@ for i in range(len(digits.data)):
         eight.append(digits.data[i])
     if digits.target[i] == 9:
         nine.append(digits.data[i])
-#for i in range(64):
-    #ax = fig.add_subplot(8,8,i+1,xticks=[],yticks=[])
-    #ax.imshow(zero[i].reshape((8,8)),cmap=plt.cm.binary,interpolation='nearest')
-#plt.show()
+
 ex = np.array(three[60]).reshape((8,8))
 
-
 ex = np.array(convert(r"C:\Users\Admin\Desktop\Python\計程實驗\mini_project_3\9.png"))
-
-np.random.seed(42)
-#ex = np.random.normal(ex,40)
 
 from sklearn.ensemble import RandomForestClassifier
 model = RandomForestClassifier(n_estimators=1000)
 model.fit(Xtrain,ytrain)
 
-
 print(model.predict(ex.reshape(1,64)))
 
 plt.imshow(ex.reshape(8,8),cmap = plt.cm.binary)
 plt.show()
-
