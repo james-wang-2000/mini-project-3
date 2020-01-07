@@ -1,8 +1,6 @@
 from sklearn.datasets import load_digits
 digits = load_digits()
 import numpy as np
-#print(digits['target'][0])
-
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
@@ -44,7 +42,7 @@ for i in range(len(digits.data)):
         eight.append(digits.data[i])
     if digits.target[i] == 9:
         nine.append(digits.data[i])
-
+        
 ex = np.array(two[50]).reshape((8,8))
 
 def dark_down(x):    #1[50]
@@ -82,7 +80,7 @@ def blurr(x):   #4[50][20],6[20],
             x[i][j] = x[i][j]+10
 
 print(ex)
-change_one(ex)
+dark_down(ex)
 print(ex)
 np.random.seed(42)
 #ex = np.random.normal(ex,2)
