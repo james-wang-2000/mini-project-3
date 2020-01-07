@@ -2,7 +2,6 @@ from sklearn.datasets import fetch_openml
 mnist = fetch_openml('mnist_784', version=1, cache=True)
 #print(mnist.data.shape)
 import numpy as np
-#print(digits['target'][0])
 print("data done")
 
 import matplotlib as mpl
