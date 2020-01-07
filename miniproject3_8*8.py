@@ -21,6 +21,7 @@ seven = []
 eight = []
 nine = []
 
+# classify images
 for i in range(len(digits.data)):
     if digits.target[i] == 0:
         zero.append(digits.data[i])
@@ -43,8 +44,10 @@ for i in range(len(digits.data)):
     if digits.target[i] == 9:
         nine.append(digits.data[i])
         
+# example image   
 ex = np.array(two[50]).reshape((8,8))
 
+# some image processing functions ('#' is the example misrecognized image)
 def dark_down(x):    #1[50]
     """ up lighter(-2), down darker(+2)"""
     for i in range(8):
@@ -73,17 +76,18 @@ def twist(x):    #3[50]
         for j in range(7):
             x[i][j] = x[i][j+1]
             
-def blurr(x):   #4[50][20],6[20],
+def blurr(x):   #4[50][20],6[20]
     """ all darker (+10) """
     for i in range(8):
         for j in range(7):
             x[i][j] = x[i][j]+10
 
+
 print(ex)
 dark_down(ex)
 print(ex)
 np.random.seed(42)
-#ex = np.random.normal(ex,2)
+#ex = np.random.normal(ex,2)  
 
 from sklearn.ensemble import RandomForestClassifier
 model = RandomForestClassifier(n_estimators=1000)
